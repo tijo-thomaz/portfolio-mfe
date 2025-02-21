@@ -13,6 +13,9 @@ export default defineConfig({
       shared: ["react", "react-dom"],
     }),
   ],
+  build: {
+    target: "esnext", // Ensures top-level await is supported
+  },
   server: {
     port: 3000,
   },
