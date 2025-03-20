@@ -2,12 +2,17 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
     "jsx": "react-jsx",
-    "types": ["vite/client"]
+    "moduleResolution": "Node",
+    "outDir": "./dist",
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@api/*": ["api/*"],
+      "@components/*": ["components/*"],
+      "@threejs/*": ["threejs/*"],
+      "@pages/*": ["pages/*"]
+    }
   },
-  "include": ["src", "src/declarations.d.ts"]
+  "include": ["src"]
 }
