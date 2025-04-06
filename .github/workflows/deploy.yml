@@ -1,0 +1,30 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build with Docker
+        run: |
+          docker build --target artifacts -t portfolio-build .
+          container_id=$(docker create portfolio-build)
+          mkdir -p ./dist
+          docker cp $container_id:/ ./dist
+          docker rm $container_id
+          touch ./dist/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages
