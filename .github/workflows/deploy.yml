@@ -1,8 +1,9 @@
-name: Build and Deploy
+name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main # or master, depending on your default branch name
 
 jobs:
   build-and-deploy:
@@ -11,23 +12,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # Use a version compatible with your dependencies
 
-      - name: Build with Docker
-        run: |
-          docker build --target artifacts -t portfolio-build .
-          container_id=$(docker create portfolio-build)
-          mkdir -p ./gh-pages-deploy
-          docker cp $container_id:/ ./gh-pages-deploy
-          docker rm $container_id
-          touch ./gh-pages-deploy/.nojekyll
+      - name: Install dependencies
+        run: npm ci
 
-          # Create a 404.html that redirects to index.html for SPA routing
-          cp ./gh-pages-deploy/index.html ./gh-pages-deploy/404.html
+      - name: Build
+        run: npm run build
+        env:
+          PUBLIC_URL: /portfolio-mfe
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: gh-pages-deploy
-          branch: gh-pages
+          folder: dist # The folder the action should deploy
+          branch: gh-pages # The branch the action should deploy to
