@@ -18,13 +18,16 @@ jobs:
         run: |
           docker build --target artifacts -t portfolio-build .
           container_id=$(docker create portfolio-build)
-          mkdir -p ./dist
-          docker cp $container_id:/ ./dist
+          mkdir -p ./gh-pages-deploy
+          docker cp $container_id:/ ./gh-pages-deploy
           docker rm $container_id
-          touch ./dist/.nojekyll
+          touch ./gh-pages-deploy/.nojekyll
+
+          # Create a 404.html that redirects to index.html for SPA routing
+          cp ./gh-pages-deploy/index.html ./gh-pages-deploy/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: gh-pages-deploy
           branch: gh-pages
