@@ -1,18 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "jsx": "react-jsx",
-    "moduleResolution": "Node",
-    "outDir": "./dist",
-    "strict": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@api/*": ["api/*"],
-      "@components/*": ["components/*"],
-      "@threejs/*": ["threejs/*"],
-      "@pages/*": ["pages/*"]
-    }
-  },
-  "include": ["src"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

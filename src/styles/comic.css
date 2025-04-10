@@ -1,0 +1,86 @@
+/* Comic-style CSS */
+
+/* Border styles */
+.border-3 {
+  border-width: 3px;
+}
+
+/* Comic-style shadows */
+.shadow-comic {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.shadow-comic-lg {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Comic panel styles */
+.comic-panel {
+  position: relative;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comic-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Comic font */
+.font-comic {
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+}
+
+/* Action words */
+.action-word {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transform: rotate(-5deg);
+  border: 3px solid black;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Animated elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Lightning effect */
+.lightning-bolt {
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}

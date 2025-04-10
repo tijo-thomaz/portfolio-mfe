@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Base comic styles */
+.font-comic {
+  font-family: 'Comic Neue', cursive;
+}
+
+/* Shadow effects */
+.shadow-comic {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+.shadow-comic-sm {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+}
+.shadow-comic-lg {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #2563eb;
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom utility classes */
+@layer components {
+/* Comic-style buttons */
+.btn-comic {
+    @apply relative inline-block py-2 px-4 font-bold text-center border-2 border-black rounded-lg bg-white shadow-comic transition-all duration-200;
+}
+.btn-comic:hover {
+    @apply translate-x-0.5 translate-y-0.5 shadow-comic-sm;
+}
+.btn-comic:active {
+    @apply translate-x-1 translate-y-1 shadow-none;
+}
+
+/* Comic-style speech bubbles */
+.speech-bubble {
+    @apply relative p-4 bg-white border-2 border-black rounded-lg shadow-comic;
+}
+.speech-bubble-left:before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #000;
+  border-left: 0;
+  margin-top: -10px;
+}
+.speech-bubble-right:before {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #000;
+  border-right: 0;
+  margin-top: -10px;
+}
+
+/* Comic-style panels */
+.comic-panel {
+    @apply bg-white border-3 border-black rounded-lg shadow-comic-lg overflow-hidden;
+}
+}
+
+/* Comic-style text effects */
+.text-outline {
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+/* Comic-style dividers */
+.divider-zigzag {
+  height: 20px;
+  background: 
+    linear-gradient(45deg, #fff 10px, transparent 0),
+    linear-gradient(-45deg, #fff 10px, transparent 0);
+  background-size: 20px 20px;
+  background-color: #000;
+}
+
+/* Add the yellow background color for the body */
+body {
+  background-color: #FFFACD;
+  font-family: 'Comic Neue', cursive;
+  background-image: url('/assets/pattern.png');
+  background-repeat: repeat;
+  background-size: 80px 80px; /* Adjust for density */
+  background-color: #fff8dc; /* Light paper-like yellow */
+}

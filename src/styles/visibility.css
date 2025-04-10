@@ -1,0 +1,44 @@
+/* Ensure all components are visible */
+.hero-section,
+.comic-panel,
+.cube-container,
+.speech-bubble,
+.comic-button {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure lightning bolts don't affect other content */
+.lightning-container {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lightning-bolt {
+  pointer-events: none;
+}
+
+/* Fix z-index stacking */
+.z-0 {
+  z-index: 0 !important;
+}
+
+.z-10 {
+  z-index: 10 !important;
+}
+
+.z-20 {
+  z-index: 20 !important;
+}
+
+/* Ensure content is above lightning */
+.container {
+  position: relative;
+  z-index: 10 !important;
+}
+
+/* Make sure 3D content is visible */
+canvas {
+  opacity: 1 !important;
+  visibility: visible !important;
+}

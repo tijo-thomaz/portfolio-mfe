@@ -1,0 +1,164 @@
+.heroContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.contentContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroTitle {
+  font-family: 'Comic Neue', cursive;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 #000;
+  transform: rotate(-1deg);
+  margin-bottom: 1rem;
+}
+
+.speechBubble {
+  position: relative;
+  background-color: #fff;
+  border: 3px solid #000;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 4px 4px 0 #000;
+  transform: rotate(1deg);
+}
+
+.speechBubble:before {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-left-color: #000;
+  border-right: 0;
+  margin-top: -20px;
+  z-index: 1;
+}
+
+.speechBubble:after {
+  content: '';
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 16px solid transparent;
+  border-left-color: #fff;
+  border-right: 0;
+  margin-top: -16px;
+  z-index: 2;
+}
+
+.speechText {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.highlightedName {
+  font-weight: bold;
+  background-color: #FFFF00;
+  padding: 0 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button {
+  font-family: 'Comic Neue', cursive;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: 3px solid #000;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 0 #000;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}
+
+.button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.primaryButton {
+  background-color: #FF6B6B;
+  color: #000;
+  transform: rotate(1deg);
+}
+
+.secondaryButton {
+  background-color: #4ECDC4;
+  color: #000;
+  transform: rotate(-1deg);
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border: 5px solid #000;
+  border-radius: 1rem;
+  box-shadow: 6px 6px 0 #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(2deg);
+}
+
+.placeholderText {
+  font-family: 'Comic Neue', cursive;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .speechBubble:before,
+  .speechBubble:after {
+    display: none;
+  }
+  
+  .buttonContainer {
+    justify-content: center;
+  }
+  
+  .placeholder {
+    width: 250px;
+    height: 250px;
+  }
+}

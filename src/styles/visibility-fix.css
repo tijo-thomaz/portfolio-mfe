@@ -1,0 +1,53 @@
+/* Global visibility fixes */
+.hero-section,
+.hero-section * {
+  visibility: visible !important;
+}
+
+/* Ensure content is visible */
+.hero-content,
+.hero-title,
+.speech-bubble,
+.comic-button {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10 !important;
+}
+
+/* Fix for 3D canvas */
+canvas {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Lightning effect containment */
+.lightning-container {
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.lightning-bolt {
+  pointer-events: none !important;
+}
+
+/* Z-index stacking order */
+.z-0 { z-index: 0 !important; }
+.z-1 { z-index: 1 !important; }
+.z-5 { z-index: 5 !important; }
+.z-10 { z-index: 10 !important; }
+.z-20 { z-index: 20 !important; }
+
+/* Ensure proper stacking context */
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+/* Fix for GSAP animations */
+.gsap-fix {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
